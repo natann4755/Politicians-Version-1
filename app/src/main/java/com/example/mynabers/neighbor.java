@@ -4,11 +4,10 @@ public class neighbor {
     private String firstName, lastName, url;
     private boolean faivorit = false;
 
-    public neighbor(String firstName, String lastName, String url,boolean favor) {
+    public neighbor(String firstName, String lastName, String url) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.url = url;
-        this.faivorit=favor;
     }
 
     public boolean isFaivorit() {

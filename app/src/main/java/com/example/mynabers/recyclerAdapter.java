@@ -1,8 +1,11 @@
 package com.example.mynabers;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.sip.SipSession;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
@@ -21,13 +24,17 @@ import java.util.zip.Inflater;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.app.PendingIntent.getActivity;
+
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder> {
 
     private ArrayList<neighbor> mNeighbors;
+    public Context context;
 
 
-    public recyclerAdapter(ArrayList<neighbor> mNeighbors) {
+    public recyclerAdapter(ArrayList<neighbor> mNeighbors,Context context) {
         this.mNeighbors = mNeighbors;
+        this.context = context;
     }
 
     @NonNull
@@ -62,6 +69,15 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder
             mCircleImageView = itemView.findViewById(R.id.profile_image);
             firstName = itemView.findViewById(R.id.PO_titel);
             lastName = itemView.findViewById(R.id.PO_text);
+
+            View.OnClickListener listnr = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context,Activity1Naeber.class);
+                    context.startActivity(intent);
+                }
+            };
+          itemView.setOnClickListener(listnr);
         }
 
         public void set(neighbor n) {
