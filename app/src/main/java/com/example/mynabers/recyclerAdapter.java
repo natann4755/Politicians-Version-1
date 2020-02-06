@@ -86,34 +86,34 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder
             firstName.setText(n.getFirstName());
             lastName.setText(n.getLastName());
 
-//            Runnable r = new Runnable() {
-//                @Override
-//                public void run() {
-//                    URL url = null;
-//                    try {
-//                        url = new URL(myneighbor.getUrl());
-//                    } catch (MalformedURLException e) {
-//                        e.printStackTrace();
-//                    }
-//                    try {
-//                        bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            mCircleImageView.setImageBitmap(bmp);
-//                        }
-//                    });
-//                }
-//
-//                ;
-//            };
-//            Thread t = new Thread(r);
-//            t.start();
-//        }
-            mCircleImageView.setImageResource(R.drawable.ic_launcher_background);
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    URL url = null;
+                    try {
+                        url = new URL(myneighbor.getUrl());
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mCircleImageView.setImageBitmap(bmp);
+                        }
+                    });
+                }
+
+                ;
+            };
+            Thread t = new Thread(r);
+            t.start();
+        }
+//            mCircleImageView.setImageResource(R.drawable.ic_launcher_background);
         }
     }
-}
+//}
