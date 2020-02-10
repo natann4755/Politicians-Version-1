@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.sip.SipSession;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import static android.app.PendingIntent.getActivity;
 
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder> {
 
+    public static final String key = "key";
     private ArrayList<neighbor> mNeighbors;
     public Context context;
 
@@ -73,7 +75,11 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder
             View.OnClickListener listnr = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent(context,Activity1Naeber.class);
+//                    Bundle b = new Bundle();
+//                    b.putParcelable(key,myneighbor);
+                    intent.putExtra("naiber",myneighbor);
                     context.startActivity(intent);
                 }
             };
