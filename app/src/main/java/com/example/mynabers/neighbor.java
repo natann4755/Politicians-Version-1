@@ -3,22 +3,24 @@ package com.example.mynabers;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class neighbor implements Parcelable {
+public class neighbor implements Parcelable{
     private String firstName, lastName, url;
+    private int age;
     private int rating = 0;
     private boolean faivorit = false;
 
-    public neighbor(String firstName, String lastName, String url) {
+    public neighbor(String firstName, String lastName, String url, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.url = url;
+        this.age = age;
     }
-
 
     protected neighbor(Parcel in) {
         firstName = in.readString();
         lastName = in.readString();
         url = in.readString();
+        age = in.readInt();
         rating = in.readInt();
         faivorit = in.readByte() != 0;
     }
@@ -34,22 +36,6 @@ public class neighbor implements Parcelable {
             return new neighbor[size];
         }
     };
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public boolean isFaivorit() {
-        return faivorit;
-    }
-
-    public void setFaivorit(boolean faivorit) {
-        this.faivorit = faivorit;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -75,6 +61,30 @@ public class neighbor implements Parcelable {
         this.url = url;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public boolean isFaivorit() {
+        return faivorit;
+    }
+
+    public void setFaivorit(boolean faivorit) {
+        this.faivorit = faivorit;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -85,7 +95,9 @@ public class neighbor implements Parcelable {
         dest.writeString(firstName);
         dest.writeString(lastName);
         dest.writeString(url);
+        dest.writeInt(age);
         dest.writeInt(rating);
         dest.writeByte((byte) (faivorit ? 1 : 0));
     }
 }
+

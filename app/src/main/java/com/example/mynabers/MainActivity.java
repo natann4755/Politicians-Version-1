@@ -20,15 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        createViewPage();
+    }
 
-//        ollNeighbors myollNeighbors = new ollNeighbors();
-//        getSupportFragmentManager().beginTransaction().add(R.id.am_FramLayot,myollNeighbors).commit();
-
+    private void createViewPage() {
         myViewPager = findViewById(R.id.AM_vP);
         myViewPager.setAdapter(new VP_adapter(getSupportFragmentManager(), makeFragments()));
         TabLayout tabLayout = findViewById(R.id.am_tab_layout);
         tabLayout.setupWithViewPager(myViewPager);
-
     }
 
     private ArrayList<ollNeighbors> makeFragments() {

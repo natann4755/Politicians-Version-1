@@ -75,10 +75,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder
             View.OnClickListener listnr = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Intent intent = new Intent(context,Activity1Naeber.class);
-//                    Bundle b = new Bundle();
-//                    b.putParcelable(key,myneighbor);
                     intent.putExtra("naiber",myneighbor);
                     context.startActivity(intent);
                 }
@@ -119,7 +116,6 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Holder
             Thread t = new Thread(r);
             t.start();
         }
-//            mCircleImageView.setImageResource(R.drawable.ic_launcher_background);
         }
     }
 //}
