@@ -31,7 +31,7 @@ public class ollNeighbors extends Fragment {
     static final String keybundel = "keybundel";
     static final String keySharedPreferences = "keySharedPreferences";
     private ArrayList<neighbor> myNeighbors;
-    private Gson gson;
+
 
     private ollNeighbors() {
     }
@@ -57,7 +57,7 @@ public class ollNeighbors extends Fragment {
     private void setArreyNeighbors() {
         SharedPreferences settings = getActivity().getSharedPreferences(keySharedPreferences,0);
         String fromSharedPreferences = settings.getString(MY_NEIGHBORS, null);
-        gson = new Gson();
+        Gson gson = new Gson();
         if (fromSharedPreferences == null){
             myNeighbors = arreyNeighbor();
 

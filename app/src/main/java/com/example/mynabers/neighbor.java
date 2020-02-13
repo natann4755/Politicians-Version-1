@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class neighbor implements Parcelable{
     private String firstName, lastName, url;
     private int age;
-    private int rating = 0;
+    private int rating;
     private boolean faivorit = false;
 
     public neighbor(String firstName, String lastName, String url, int age) {
@@ -15,27 +15,6 @@ public class neighbor implements Parcelable{
         this.url = url;
         this.age = age;
     }
-
-    protected neighbor(Parcel in) {
-        firstName = in.readString();
-        lastName = in.readString();
-        url = in.readString();
-        age = in.readInt();
-        rating = in.readInt();
-        faivorit = in.readByte() != 0;
-    }
-
-    public static final Creator<neighbor> CREATOR = new Creator<neighbor>() {
-        @Override
-        public neighbor createFromParcel(Parcel in) {
-            return new neighbor(in);
-        }
-
-        @Override
-        public neighbor[] newArray(int size) {
-            return new neighbor[size];
-        }
-    };
 
     public String getFirstName() {
         return firstName;
@@ -84,6 +63,27 @@ public class neighbor implements Parcelable{
     public void setFaivorit(boolean faivorit) {
         this.faivorit = faivorit;
     }
+
+    protected neighbor(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        url = in.readString();
+        age = in.readInt();
+        rating = in.readInt();
+        faivorit = in.readByte() != 0;
+    }
+
+    public static final Creator<neighbor> CREATOR = new Creator<neighbor>() {
+        @Override
+        public neighbor createFromParcel(Parcel in) {
+            return new neighbor(in);
+        }
+
+        @Override
+        public neighbor[] newArray(int size) {
+            return new neighbor[size];
+        }
+    };
 
     @Override
     public int describeContents() {
