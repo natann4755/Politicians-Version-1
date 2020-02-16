@@ -31,6 +31,7 @@ public class ollNeighbors extends Fragment {
     static final String keybundel = "keybundel";
     static final String keySharedPreferences = "keySharedPreferences";
     private ArrayList<neighbor> myNeighbors;
+    private  View vieww;
 
 
     private ollNeighbors() {
@@ -47,11 +48,19 @@ public class ollNeighbors extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View vieww = inflater.inflate(R.layout.fragment,container,false);
+         vieww = inflater.inflate(R.layout.fragment,container,false);
+//        setArreyNeighbors();
+//        setFaevorit();
+//        findArae(vieww);
+        return vieww;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         setArreyNeighbors();
         setFaevorit();
         findArae(vieww);
-        return vieww;
     }
 
     private void setArreyNeighbors() {

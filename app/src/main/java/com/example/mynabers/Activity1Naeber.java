@@ -118,20 +118,20 @@ public class Activity1Naeber extends AppCompatActivity implements View.OnClickLi
         myNeighbor1 = myNeighbors.get(posishnMyNaiber);
         intVeiws();
 
+//        SharedPreferences.Editor edt = settings.edit();
+//        String json = gson.toJson(myNeighbors);
+//        edt.putString(MY_NEIGHBORS, json);
+//        edt.apply();
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
         SharedPreferences.Editor edt = settings.edit();
         String json = gson.toJson(myNeighbors);
         edt.putString(MY_NEIGHBORS, json);
         edt.apply();
     }
-
-
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        SharedPreferences.Editor edt = settings.edit();
-//        String json = gson.toJson(myNeighbors);
-//        edt.putString(MY_NEIGHBORS, json);
-//        edt.apply();
-//    }
 
 }
